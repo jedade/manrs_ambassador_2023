@@ -1,0 +1,9 @@
+fastapi==0.68.0
+uvicorn==0.15.0
+sqlalchemy==1.4.23
+alembic==1.7.4
+pydantic==1.9.0
+pytest==7.0.1
+requests
+pydantic[dotenv]
+python-multipart
