@@ -50,20 +50,22 @@ Provide instructions on how to set up the project locally. This section should i
 
 List the software, libraries, and tools that need to be installed before setting up your project.
 
-- Prerequisite 1
-- Prerequisite 2
+- Prerequisite 1 : python 3.10+
+- Prerequisite 2: install virtualenv for ubuntu `apt-get install virtualenv`
 - ...
 
 ### Installation
 
-1. Clone the repository: `git clone https://github.com/yourusername/yourproject.git`
-2. Navigate to the project directory: `cd yourproject`
-3. Install dependencies: `npm install` or `pip install -r requirements.txt`
-4. Additional steps, if any...
-
+1. Clone the repository: `git clone https://github.com/jedade/manrs_ambassador_2023.git`
+2. Create virtualenv `python3 -m venv {{env}}` and activate your env
+2. Navigate to the project directory: `cd manrs_ambassador_2023.git`
+3. Install dependencies: `pip install -r requirements.txt`
+4. Generate Database: run notebook script `new_script.ipynb`
+5. Move newdatabase.db: `cp script/newdatabase.db manrs_2023-08/newdatabase.db`
+5. Run api: `python run.py`
 ## Usage
 
-Provide examples or instructions on how to use your project. This could include code snippets, command-line examples, or screenshots.
+Go to the documentation at url: `http://127.0.0.1:8000/docs`
 
 ## Contributing
 
@@ -81,4 +83,4 @@ Give credit to libraries, articles, or resources that inspired or helped you in 
 
 ---
 
-**Note:** Replace the placeholders (`yourusername`, `yourproject`, etc.) with actual information related to your project. Add or remove sections as needed to suit your project's requirements.
+**Note:** Replace the placeholders (`jedade`, `manrs_ambassador_2023`, etc.) with actual information related to your project. Add or remove sections as needed to suit your project's requirements.
