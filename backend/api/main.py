@@ -51,7 +51,7 @@ class DelegatedStatsTable(Base):
     type = Column(String, nullable=True)
     start = Column(String, nullable=True)
     value = Column(String, nullable=True)
-    date = Column(Date, nullable=True)
+    date = Column(String, nullable=True)
     status = Column(String, nullable=True)
     opaque_id = Column(String, nullable=True)
     extensions = Column(String, nullable=True)
@@ -69,8 +69,8 @@ class RelationshipAsnTable(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     asn = Column(String, unique=True)
-    customer = Column(String, nullable=True)
-    provider = Column(String, nullable=True)
+    customers = Column(String, nullable=True)
+    providers = Column(String, nullable=True)
 
     
 class DatasetASMapping(BaseModel):
@@ -104,8 +104,8 @@ class CategorizedAsn(BaseModel):
 
 class RelationshipAsn(BaseModel):
     asn: str
-    customer: Optional[str]
-    provider: Optional[str]
+    customers: Optional[str]
+    providers: Optional[str]
 
 
 # Créer toutes les tables dans la base de données
@@ -163,14 +163,14 @@ def find_asn_data(db: Session, asn):
     print(dataset_mapping_data)
     merged_data = {
         "asn" : asn,
-        "sibling_asns" : dataset_mapping_data.sibling_asns,
-        "website" : dataset_mapping_data.website,
-        "category_1" : categorized_asn_data.category_1,
-        "category_2" : categorized_asn_data.category_2,
-        "country_code": delegated_stats_data.cc,
-        "customers": relationship_asn_data.customers,
-        "providers": relationship_asn_data.providers,
-        "name": dataset_mapping_data.name,
+        "sibling_asns" : dataset_mapping_data.sibling_asns if delegated_stats_data is not None and dataset_mapping_data.sibling_asns is not None else [],
+        "website" : dataset_mapping_data.website if delegated_stats_data is not None and dataset_mapping_data.website is not None else "",
+        "category_1" : categorized_asn_data.category_1 if categorized_asn_data.category_1 is not None else "",
+        "category_2" : categorized_asn_data.category_2 if categorized_asn_data.category_2 is not None else "",
+        "country_code": delegated_stats_data.cc if delegated_stats_data is not None and dataset_mapping_data.cc is not None else "",
+        "customers": relationship_asn_data.customers if relationship_asn_data is not None and relationship_asn_data.customers is not None else [],
+        "providers": relationship_asn_data.providers if relationship_asn_data is not None and relationship_asn_data.providers is not None else [],
+        "org_name": dataset_mapping_data.name if delegated_stats_data is not None and dataset_mapping_data.name is not None else "",
     }
     return merged_data
 
@@ -368,8 +368,8 @@ async def get_info_asn(
     if asn:
         asn_data = find_asn_data(db, asn)
          # Extract customer and provider details
-            
-        asn_data["sibling_asns"] = extract_related_data(db, asn_data["sibling_asns"])
+        if asn_data["sibling_asns"] is not []:  
+            asn_data["sibling_asns"] = extract_related_data(db, asn_data["sibling_asns"])
 
         results = asn_data
         total_results = 1
