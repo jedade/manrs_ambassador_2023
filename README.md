@@ -1,70 +1,84 @@
-# manrs_ambassador_2023
-MANRS AMBASSADOR 2023
-Voici un exemple de fichier README.md pour votre application FastAPI. Vous pouvez le personnaliser en fonction de vos besoins spécifiques et des détails de votre projet.
+# MANRS Mentors and Ambassadors Program 2023 (MANRS+tool)
 
-```markdown
-# Mon Application FastAPI
+[![Project Logo](logo.png)](https://www.manrs.org/wp-content/themes/manrs/assets/images/logo-black.svg)
 
-Cette application est basée sur FastAPI et sert à traiter et stocker des données liées aux organisations ASN. Elle télécharge un fichier de données spécifique, extrait les informations et les enregistre dans une base de données SQLite.
+The aim of this tool is to be able to have the supply chain of an ASN
+belonging to a category and a country and to check the routing security
+status of each of the ASNs.
 
-## Structure du Projet
+## Table of Contents
 
-Le projet est organisé en utilisant une architecture modulaire pour améliorer la lisibilité et la maintenabilité du code. Voici une brève description des principaux dossiers et fichiers :
+- [Project Overview](#project-overview)
+- [Features](#features)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+- [Acknowledgements](#acknowledgements)
 
-- `app/`: Contient le code principal de l'application FastAPI.
-- `tests/`: Contient les tests unitaires et d'intégration.
-- `alembic/`: (Optionnel) Utilisé pour les migrations de base de données avec Alembic.
-- `requirements.txt`: Liste des dépendances du projet.
-- `main.py`: Point d'entrée de l'application FastAPI.
-- `README.md`: Ce fichier, contenant des informations sur le projet.
+## Project Overview
 
-## Installation
+The aim of this tool is to be able to have the supply chain of an ASN
+belonging to a category and a country and to check the routing security
+status of each of the ASNs. This development will take place in
+two phases:
+● Creation of a script with these different functions:
+Input: country, output: list ofASNs
+Input: country, output: list of categories
+Input: ASN, output:list of
+siblings
+input: ASN, output: list of providers/peers
+input: ASN, output: MANRS metrics
+● Presentation by a platform of
+the information processed by the script on a web page with
+graphics.
+## Features
 
-1. Assurez-vous d'avoir Python (version X.X) installé. Vous pouvez le télécharger à partir du site officiel : https://www.python.org/downloads/
-   
-2. Clonez ce dépôt ou téléchargez les fichiers du projet.
+List the key features or functionalities of your project.
+- SCRIPT with Pandas: This script 
+- API with FASTAPI: 
+- Platform web (TO-DO): Description
+- ...
 
-3. Ouvrez un terminal et accédez au répertoire du projet :
+## Getting Started
 
-   ```bash
-   cd /chemin/vers/mon_application_fastapi
-   ```
+Provide instructions on how to set up the project locally. This section should include prerequisites and installation steps.
 
-4. Installez les dépendances nécessaires en exécutant la commande suivante :
+### Prerequisites
 
-   ```bash
-   pip install -r requirements.txt
-   ```
+List the software, libraries, and tools that need to be installed before setting up your project.
 
-## Démarrage
+- Prerequisite 1
+- Prerequisite 2
+- ...
 
-Pour lancer l'application, exécutez la commande suivante depuis le répertoire racine du projet :
+### Installation
 
-```bash
-uvicorn app.main:app --host 127.0.0.1 --port 8000
-```
+1. Clone the repository: `git clone https://github.com/yourusername/yourproject.git`
+2. Navigate to the project directory: `cd yourproject`
+3. Install dependencies: `npm install` or `pip install -r requirements.txt`
+4. Additional steps, if any...
 
-Accédez à l'API dans votre navigateur à l'adresse `http://127.0.0.1:8000`.
+## Usage
 
-## Tests
+Provide examples or instructions on how to use your project. This could include code snippets, command-line examples, or screenshots.
 
-Pour exécuter les tests unitaires, utilisez la commande :
+## Contributing
 
-```bash
-pytest
-```
+Explain how others can contribute to your project. Include guidelines for submitting issues, pull requests, and any coding standards you'd like contributors to follow.
 
-## Contributions
+## License
 
-Les contributions sont les bienvenues ! N'hésitez pas à ouvrir des problèmes, proposer des améliorations ou soumettre des pull requests.
+Indicate the license under which your project is distributed. For example:
 
-## Licence
+This project is licensed under the [MIT License](LICENSE).
 
-Ce projet est sous licence MIT. Veuillez consulter le fichier LICENSE pour plus de détails.
+## Acknowledgements
+
+Give credit to libraries, articles, or resources that inspired or helped you in creating your project.
 
 ---
 
-Créé par [Votre Nom](https://github.com/votre_nom)
-```
-
-Assurez-vous de personnaliser les sections telles que "Installation", "Démarrage", "Tests", "Contributions" et "Licence" en fonction des spécificités de votre projet.
+**Note:** Replace the placeholders (`yourusername`, `yourproject`, etc.) with actual information related to your project. Add or remove sections as needed to suit your project's requirements.
