@@ -37,7 +37,7 @@ class DatasetASMappingTable(Base):
     name = Column(String, nullable=True)
     descr = Column(String, nullable=True)
     website = Column(String, nullable=True)
-    comparison_with_ca20 = Column(String, nullable=True)
+    comparison_with_ca2O = Column(String, nullable=True)
     comparison_with_pdb = Column(String, nullable=True)
     pdb_org_id = Column(String, nullable=True)
     pdb_org = Column(String, nullable=True)
@@ -156,10 +156,10 @@ def get_latest_ratio_from_csv(asn):
         
     
 def find_asn_data(db: Session, asn):
-    dataset_mapping_data = db.query(DatasetASMappingTable).filter(DatasetASMappingTable.asn == asn).first()
-    delegated_stats_data = db.query(DelegatedStatsTable).filter(DelegatedStatsTable.value == asn).first()
-    categorized_asn_data = db.query(CategorizedAsnTable).filter(CategorizedAsnTable.asn == asn).first()
-    relationship_asn_data = db.query(RelationshipAsnTable).filter(RelationshipAsnTable.asn == asn).all()
+    dataset_mapping_data = db.query(DatasetASMappingTable).filter(DatasetASMappingTable.asn == str(asn)).first()
+    delegated_stats_data = db.query(DelegatedStatsTable).filter(DelegatedStatsTable.value == str(asn)).first()
+    categorized_asn_data = db.query(CategorizedAsnTable).filter(CategorizedAsnTable.asn == str(asn)).first()
+    relationship_asn_data = db.query(RelationshipAsnTable).filter(RelationshipAsnTable.asn == str(asn)).first()
     print(dataset_mapping_data)
     merged_data = {
         "asn" : asn,
